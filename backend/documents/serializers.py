@@ -8,6 +8,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class DocumentSerializer(serializers.ModelSerializer):
     category_name = serializers.ReadOnlyField(source='category.name')
+    #application_name = serializers.ReadOnlyField(source='application.name')
+    #api_name = serializers.ReadOnlyField(source='api_catalog.name')
 
     class Meta:
         model = Document

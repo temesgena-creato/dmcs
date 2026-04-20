@@ -28,7 +28,24 @@ class Document(models.Model):
     
     # Simple integer IDs for User and Entity
     user_id = models.IntegerField(null=True, blank=True) # Created by
-    related_entity_id = models.IntegerField()            # App or API ID
+    application_id = models.IntegerField(null=True, blank=True)
+    api_catalog_id = models.IntegerField(null=True, blank=True)
+     #application = models.ForeignKey(
+        # 'application.application', 
+         #on_delete=models.SET_NULL, 
+         #null=True, 
+         #blank=True,
+         #related_name='documents'
+    # )
+    
+    # Link to API Catalog (Replace 'app_name.APICatalog' with actual path)
+     #api_catalog = models.ForeignKey(
+        # 'APICatalog.API_catalog', 
+         #on_delete=models.SET_NULL, 
+         #null=True, 
+         #blank=True,
+        # related_name='documents'
+    # )
     
     file_location = models.FileField(upload_to='documents/') 
     

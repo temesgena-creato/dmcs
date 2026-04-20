@@ -1,7 +1,14 @@
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
-from .models import Document
-from .serializers import DocumentSerializer
+from .models import Document,Category
+from .serializers import DocumentSerializer,CategorySerializer
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows categories to be viewed or created.
+    """
+    queryset = Category.objects.all().order_by('name')
+    serializer_class = CategorySerializer
 
 class DocumentViewSet(viewsets.ModelViewSet):
     """
